@@ -33,7 +33,7 @@ app.use(cors());
 // const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // app.use(express.static(path.join(__dirname, "ecom/build")));
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("<h2>Hello</h2>");
 });
 // Define routes
