@@ -39,7 +39,7 @@ app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
 app.use("/", (req, res) => {
-  res.send(<h2>Hello</h2>);
+  res.send("<h2>Hello</h2>");
 });
 
 // // // For any other route, serve the index.html file
