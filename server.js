@@ -33,14 +33,13 @@ app.use(cors());
 // const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // app.use(express.static(path.join(__dirname, "ecom/build")));
 
+app.use("/", (req, res) => {
+  res.send("<h2>Hello</h2>");
+});
 // Define routes
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
-
-app.use("/", (req, res) => {
-  res.send("<h2>Hello</h2>");
-});
 
 // // // For any other route, serve the index.html file
 // app.get("*", function (req, res) {
