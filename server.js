@@ -21,10 +21,18 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(morgan("dev"));
+// Configure CORS
+// const corsOptions = {
+//   origin: 'https://mern-stack-ecommerce-project.vercel.app',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Include PUT method
+// };
+
+// app.use(cors(corsOptions));
+
 app.use(
   cors({
     origin: ["https://mern-stack-ecommerce-project.vercel.app"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );
