@@ -30,12 +30,14 @@ app.use(morgan("dev"));
 // app.use(cors(corsOptions));
 
 // Configure CORS to allow requests from your frontend origin
-app.use(cors({
-  origin: 'https://mern-stack-ecommerce-project.vercel.app', // Specify the allowed origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
-}));
+app.use(
+  cors({
+    origin: "https://mern-stack-ecommerce-project.vercel.app/", // Specify the allowed origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+    credentials: true,
+  })
+);
 
 // app.use(
 //   cors({
