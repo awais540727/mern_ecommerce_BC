@@ -29,13 +29,21 @@ app.use(morgan("dev"));
 
 // app.use(cors(corsOptions));
 
-app.use(
-  cors({
-    origin: ["https://mern-stack-ecommerce-project.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// Configure CORS to allow requests from your frontend origin
+app.use(cors({
+  origin: 'https://mern-stack-ecommerce-project.vercel.app', // Specify the allowed origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
+}));
+
+// app.use(
+//   cors({
+//     origin: ["https://mern-stack-ecommerce-project.vercel.app"],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 
 // Serve static files from the build directory
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
