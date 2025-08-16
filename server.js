@@ -42,7 +42,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "ecom/build")));
 
 app.get("/", (req, res) => {
-  res.send("<h2>Hello</h2>");
+  res.send("<h2>Hello, Welcome to the E-commerce API</h2>");
 });
 // Define routes
 app.use("/api/v1/auth", authRoute);
