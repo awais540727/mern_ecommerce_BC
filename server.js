@@ -97,6 +97,9 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "ecom/build/index.html"));
 });
 
+app.get("/", (req, res) => {
+  res.send("<h1>Hello Welcome To Ecommerce</h1>");
+});
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
