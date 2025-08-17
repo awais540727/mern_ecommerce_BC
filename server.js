@@ -24,7 +24,7 @@ const app = express();
 app.use(morgan("dev"));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "ecom/build")));
+app.use(express.static(path.join(__dirname, "../ecom/build")));
 
 const allowedOrigins = [
   "http://localhost:3000",
@@ -92,14 +92,14 @@ app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
-// // For any other route, serve the index.html file
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "ecom/build/index.html"));
-});
-
 app.get("/", (req, res) => {
   res.send("<h1>Hello Welcome To Ecommerce</h1>");
 });
+// // For any other route, serve the index.html file
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../ecom/build/index.html"));
+});
+
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
