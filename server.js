@@ -26,28 +26,28 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../ecom/build")));
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://mern-stack-ecommerce-project.vercel.app",
-];
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "https://mern-stack-ecommerce-project.vercel.app",
+// ];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
 
 // 👇 THIS IS THE IMPORTANT PART
-app.options("*", cors()); // handle preflight for all routes
+// app.options("*", cors()); // handle preflight for all routes
 
 app.use(express.json());
 
@@ -71,16 +71,16 @@ app.use(express.json());
 //   })
 // );
 // app.options("*", cors());
-// app.use(
-//   cors({
-//     origin: [
-//       "https://mern-stack-ecommerce-project.vercel.app",
-//       "http://localhost:3000",
-//     ],
-//     methods: ["POST", "GET", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: [
+      "https://mern-stack-ecommerce-alpha.vercel.app/",
+      "http://localhost:3000",
+    ],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // // Serve static files from the build directory
 // const __dirname = path.dirname(fileURLToPath(import.meta.url));
