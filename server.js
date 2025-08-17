@@ -74,7 +74,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://mern-stack-ecommerce-alpha.vercel.app/",
+      "https://mern-stack-ecommerce-alpha.vercel.app",
       "http://localhost:3000",
     ],
     methods: ["POST", "GET", "PUT", "DELETE"],
