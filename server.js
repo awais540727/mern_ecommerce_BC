@@ -19,58 +19,14 @@ connectDB();
 const app = express();
 
 // Middleware
-// app.use(express.json());
 
 app.use(morgan("dev"));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../ecom/build")));
 
-// const allowedOrigins = [
-//   "http://localhost:3000",
-//   "https://mern-stack-ecommerce-project.vercel.app",
-// ];
-
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       if (!origin || allowedOrigins.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//     credentials: true,
-//   })
-// );
-
-// 👇 THIS IS THE IMPORTANT PART
-// app.options("*", cors()); // handle preflight for all routes
-
 app.use(express.json());
 
-// const allowedOrigins = [
-//   // "http://localhost:3000",
-//   "https://mern-stack-ecommerce-project.vercel.app/",
-// ];
-
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       if (!origin || allowedOrigins.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"), Error.message);
-//       }
-//     },
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//     credentials: true,
-//   })
-// );
-// app.options("*", cors());
 app.use(
   cors({
     origin: [
